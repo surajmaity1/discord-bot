@@ -1,0 +1,23 @@
+get message using channel id:
+
+
+  if (interaction.commandName === 'search') {
+
+    console.log("guild id: "+interaction.guild.name);
+    const guildId = client.guilds;
+    const channel = client.channels.cache.get("<ENTER-CHANNEL-ID>");
+
+    channel.messages.fetch({ limit: 100 }).then(messages => {
+      console.log(`Received ${messages.size} messages`);
+
+      //Iterate through the messages here with the variable "messages".
+      messages.forEach(message => {
+         console.log(message.content);
+      });
+
+    });
+    let msg = '';
+    
+    await interaction.reply(`search: ${msg}`);
+
+  }
